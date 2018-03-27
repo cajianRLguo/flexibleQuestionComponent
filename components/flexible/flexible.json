@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "om-title": "../../components/flexible/oneline-multiselect-title/oneline-multiselect-title",
+    "om-item": "../../components/flexible/oneline-multiselect-item/oneline-multiselect-item"
+  }
+}

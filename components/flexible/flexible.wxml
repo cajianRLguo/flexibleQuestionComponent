@@ -1,0 +1,4 @@
+<!--components/flexible/flexible.wxml-->
+<text>{{theIndex}}.{{question.title}}</text>
+<om-title titles="{{question.components[0].titles}}" fatherIndex="0"></om-title>
+<om-item detail="{{question.components[1]}}" fatherIndex="1" bind:valueChanged="itemValueChanged"></om-item>

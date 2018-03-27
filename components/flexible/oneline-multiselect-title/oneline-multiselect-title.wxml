@@ -1,0 +1,8 @@
+<!--components/flexible/oneline-multiselect-title/oneline-multiselect-title.wxml-->
+<view>
+    <view class="page__bd page__bd_spacing">
+        <view class="weui-flex">
+            <view class="weui-flex__item omtitle" wx:for="{{titles}}">{{item}}</view>
+        </view>
+    </view>
+</view>

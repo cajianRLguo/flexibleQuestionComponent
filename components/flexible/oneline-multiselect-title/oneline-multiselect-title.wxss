@@ -1,0 +1,6 @@
+/* components/flexible/oneline-multiselect-title/oneline-multiselect-title.wxss */
+@import '../../../style/weui.wxss';
+.omtitle {
+  color: #aaa;
+  padding-left: 50rpx;
+}
