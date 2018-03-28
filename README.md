@@ -1,6 +1,8 @@
 # 小程序组件--flexibleQuestionComponent
 问卷灵活题型组件
 
+使用本组建时，需要将utils下的util.js文件一并拷贝
+
 ## 应用场景
 本组件主要针对Questionnaire.questions[theIndex].type 属性为“flexible”的情况。
 <flexible>组件接受以下几个参数：

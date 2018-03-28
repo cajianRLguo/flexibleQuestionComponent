@@ -23,7 +23,6 @@ Component({
       this.setData({
         result: e.detail.value
       })
-      this.triggerEvent('valueChanged', { index: this.data.inputIndex, value: this.data.result })
     },
     slideChanged(e) {
       this.setData({
