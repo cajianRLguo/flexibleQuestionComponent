@@ -1,201 +1,169 @@
-# -
+# 小程序组件--flexibleQuestionComponent
 问卷灵活题型组件
 
 ## 应用场景
-如果问卷问题type为“flexible”，则可以使用本组件
-flexible组件接受以下几个参数：
-* question:Object 题目内容
-* theIndex:Number 当前题目在问卷中所处的下标（用于数据传输）
+本组件主要针对Questionnaire.questions[theIndex].type 属性为“flexible”的情况。
+<flexible>组件接受以下几个参数：
+* question:Object 题目内容，即整个question对象，包括type,title,components等
+* theIndex:Number 当前题目在问卷中所处的下标（用于数据传递）
+
+## 实现原理
+本组件共有4个子组件，分别负责题目的几个部分，通过对flexible组件进行条件填充，完成整个问题的填充。他们分别是：
+##### 子组件的共同特性：
+> * 接受2个参数：
+1、detail=question.components
+2、inputIndex=inputIndexs[index] <br>这里的inputIndex是为了记录第几个组件会产生输出，如**input类型**的组件会有数据输出，而**title类**的组件没有数据输出
+* 接受一个值改变函数：
+bind:valueChanged="itemValueChanged" 子控件值改变会通过此事件进行数据传递
+
+#### 1、select-item（input类）
+灵活题型中的单选题，如：
+> 您是否吸烟？
+--是
+--否
+
+输出数据为所选的下标Number类型，如：0
+
+#### 2、oneline-multiselect-item（input类）
+灵活题型中的多选1题目，如
+> 自制鱼露的食用频率
+- [ ] 从不
+- [ ] 偶尔  
+- [x] 经常  
+本组件还可以选择选框为radio还是checkbox，这个在题目里设置好了，无需额外设置
+
+输出数据为所选的下标
+radio对应Number类型，checkbox对应Array（Number）类型
+
+#### 3、input-title-with-slide（input类）
+灵活题型中的滑动填空题，上方数字可以手动输入，和下方的滑块共享数据，如
+> 您吸烟持续约 **20** 年
+
+输出数据为所选的值Number类型
+
+#### 4、oneline-multiselect-title（title类）
+灵活题型中的多选1题目中的标题。
+> 从不 经常 偶尔
+
 
 ## 问卷数组范例
 ```json
-[
+"questions":[
   {
-    "creatorId": 0,
-    "title": "长乐市胃癌筛查自测问卷",
-    "lastUpdated": "2018/03/12 14:45:44",
-    "description": "针对长乐市特点设计的胃癌筛查问卷，问卷设计参考了长乐市多年来的癌症统计数据，筛选出其中关键性的危险因素。该问卷用于长乐地区早期胃癌防治的筛查。",
     "tags": [
-      "危险因素",
-      "中医信息",
-      "长乐特点",
-      "遗传信息"
+      0,
+      1,
+      2,
+      3
     ],
-    "questions": [
+    "title": "您是否吸烟？",
+    "type": "flexible",
+    "components": [
       {
-        "tags": [
-          0,
-          1
-        ],
-        "notNull": true,
-        "title": "您多久吃一次腌制食品？",
-        "type": "select",
+        "type": "selectItem",
         "items": [
-          "经常吃",
-          "偶尔吃",
-          "从来不吃"
+          "是",
+          "否"
         ]
       },
       {
-        "tags": [
-          0,
-          1,
-          2
+        "type": "inputTitleWithSlide",
+        "titles": [
+          "若是，您吸烟约",
+          "@input",
+          "年"
         ],
-        "title": "请从下列症状中选出符合您近期情况的症状？",
-        "type": "multiSelect",
-        "items": [
-          "牙龈肿痛",
-          "口干",
-          "便秘"
+        "max": 40,
+        "min": 0,
+        "default": 20
+      },
+      {
+        "type": "inputTitleWithSlide",
+        "titles": [
+          "平均吸烟约",
+          "@input",
+          "支/天"
+        ],
+        "max": 40,
+        "min": 0,
+        "default": 20
+      },
+      {
+        "type": "inputTitleWithSlide",
+        "titles": [
+          "现戒烟",
+          "@input",
+          "年"
+        ],
+        "max": 40,
+        "min": 0,
+        "default": 20
+      }
+    ]
+  },
+  {
+    "tags": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "title": "您是否食用以下食品？",
+    "type": "flexible",
+    "components": [
+      {
+        "type": "onelineMultiSelectTitle",
+        "titles": [
+          "从不",
+          "偶尔\n<3次/周",
+          "经常\n>=3次/周"
         ]
       },
       {
-        "tags": [
-          0
-        ],
-        "title": "填写您最近使用的药物名称",
-        "type": "addableBlank",
-        "placeholder": [
-          " 药物名称",
-          "添加药品"
-        ]
+        "type": "onelineMultiSelectItem",
+        "title": "自制鱼露",
+        "itemNum": 3,
+        "checkType": "radio"
       },
       {
-        "tags": [
-          0,
-          1,
-          2,
-          3
+        "type": "inputTitleWithSlide",
+        "titles": [
+          "持续 约",
+          "@input",
+          "年"
         ],
-        "notNull": true,
-        "title": "请填写您的体重",
-        "type": "blank",
-        "placeholder": [
-          "请输入体重"
-        ],
-        "tips": {
-          "front": "体重",
-          "back": "千克"
-        }
+        "max": 40,
+        "min": 0,
+        "default": 20
       },
       {
-        "tags": [
-          0,
-          1,
-          2,
-          3
-        ],
-        "title": "您是否吸烟？",
-        "type": "flexible",
-        "components": [
-          {
-            "type": "selectItem",
-            "items": [
-              "是",
-              "否"
-            ]
-          },
-          {
-            "type": "inputTitleWithSlide",
-            "titles": [
-              "若是，您吸烟约",
-              "@input",
-              "年"
-            ],
-            "max": 40,
-            "min": 0,
-            "default": 20
-          },
-          {
-            "type": "inputTitleWithSlide",
-            "titles": [
-              "平均吸烟约",
-              "@input",
-              "支/天"
-            ],
-            "max": 40,
-            "min": 0,
-            "default": 20
-          },
-          {
-            "type": "inputTitleWithSlide",
-            "titles": [
-              "现戒烟",
-              "@input",
-              "年"
-            ],
-            "max": 40,
-            "min": 0,
-            "default": 20
-          }
-        ]
+        "type": "onelineMultiSelectItem",
+        "title": "虾油",
+        "itemNum": 3,
+        "checkType": "radio"
       },
       {
-        "tags": [
-          0,
-          1,
-          2,
-          3
+        "type": "inputTitleWithSlide",
+        "titles": [
+          "持续 约",
+          "@input",
+          "年"
         ],
-        "title": "您是否食用以下食品？",
-        "type": "flexible",
-        "components": [
-          {
-            "type": "onelineMultiSelectTitle",
-            "titles": [
-              "从不",
-              "偶尔\n<3次/周",
-              "经常\n>=3次/周"
-            ]
-          },
-          {
-            "type": "onelineMultiSelectItem",
-            "title": "自制鱼露",
-            "itemNum": 3,
-            "checkType": "radio"
-          },
-          {
-            "type": "inputTitleWithSlide",
-            "titles": [
-              "持续 约",
-              "@input",
-              "年"
-            ],
-            "max": 40,
-            "min": 0,
-            "default": 20
-          },
-          {
-            "type": "onelineMultiSelectItem",
-            "title": "虾油",
-            "itemNum": 3,
-            "checkType": "radio"
-          },
-          {
-            "type": "inputTitleWithSlide",
-            "titles": [
-              "持续 约",
-              "@input",
-              "年"
-            ],
-            "max": 40,
-            "min": 0,
-            "default": 20
-          },
-          {
-            "type": "onelineMultiSelectItem",
-            "title": "腌制食品",
-            "itemNum": 3,
-            "checkType": "radio"
-          },
-          {
-            "type": "onelineMultiSelectItem",
-            "title": "隔夜菜",
-            "itemNum": 3,
-            "checkType": "radio"
-          }
-        ]
+        "max": 40,
+        "min": 0,
+        "default": 20
+      },
+      {
+        "type": "onelineMultiSelectItem",
+        "title": "腌制食品",
+        "itemNum": 3,
+        "checkType": "radio"
+      },
+      {
+        "type": "onelineMultiSelectItem",
+        "title": "隔夜菜",
+        "itemNum": 3,
+        "checkType": "radio"
       }
     ]
   }
