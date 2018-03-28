@@ -19,7 +19,7 @@ Page({
       "type": "flexible",
       "components": [
         {
-          "type": "oneline-multiselect-title",
+          "type": "onelineMultiSelectTitle",
           "titles": [
             "从不",
             "偶尔\n<3次/周",
@@ -27,52 +27,53 @@ Page({
           ]
         },
         {
-          "type": "oneline-multiselect-item",
+          "type": "onelineMultiSelectItem",
           "title": "自制鱼露",
           "itemNum": 3,
-          "checkType": "checkbox"
+          "checkType": "radio"
         },
         {
-          "type": "input-title-with-slide",
+          "type": "inputTitleWithSlide",
           "titles": [
             "持续 约",
             "@input",
             "年"
           ],
           "max": 40,
-          "min": 0
+          "min": 0,
+          "default": 20
         },
         {
-          "type": "oneline-multiselect-item",
+          "type": "onelineMultiselectItem",
           "title": "虾油",
           "itemNum": 3,
           "checkType": "radio"
         },
         {
-          "type": "input-title-with-slide",
+          "type": "inputTitleWithSlide",
           "titles": [
             "持续 约",
             "@input",
             "年"
           ],
           "max": 40,
-          "min": 0
+          "min": 0,
+          "default":20
         },
         {
-          "type": "oneline-multiselect-item",
+          "type": "onelineMultiselectItem",
           "title": "腌制食品",
           "itemNum": 3,
           "checkType": "radio"
         },
         {
-          "type": "oneline-multiselect-item",
+          "type": "onelineMultiselectItem",
           "title": "隔夜菜",
           "itemNum": 3,
           "checkType": "radio"
         }
       ]
-    },
-    theIndex:5
+    }
   },
   //事件处理函数
   bindViewTap: function() {

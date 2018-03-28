@@ -1,0 +1,17 @@
+<!--components/flexible/input-title-with-slide/input-title-with-slide.wxml-->
+
+<view>
+    <view class="page__bd page__bd_spacing">
+        <view class="weui-flex">
+         <view class="weui-flex__item" wx:for="{{detail.titles}}">
+          <text wx:if="{{item=='@input'}}" class="it-slide-input">{{result}}</text>
+          <text wx:else>{{item}}</text>
+         </view>
+        </view>
+        <view class="weui-flex">
+          <slider>
+            
+          </slider>
+        </view>
+    </view>
+</view>

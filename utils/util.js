@@ -18,7 +18,15 @@ const fastRange = n => {
   return [...Array(n).keys()]
 }
 
+const parseIntforArray = arr => {
+  arr.forEach(function(v,i,arr){
+    arr[i] = parseInt(v)
+  })
+  return arr
+}
+
 module.exports = {
   formatTime: formatTime,
-  fastRange:fastRange
+  fastRange:fastRange,
+  parseIntforArray: parseIntforArray
 }

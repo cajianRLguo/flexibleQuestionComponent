@@ -23,6 +23,7 @@ Component({
       var newResult = this.data.result
       newResult[e.detail.index] = e.detail.value
       this.setData({ result: newResult})
+      console.log(this.data.result)
     }
   },
   relations:{

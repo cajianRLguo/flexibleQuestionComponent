@@ -5,10 +5,8 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    detail:{
-      type:Object
-    },
-    fatherIndex:Number
+    detail: Object,
+    fatherIndex: Number
   },
 
   /**
@@ -24,6 +22,11 @@ Component({
   methods: {
     radioChange(e) {
       this.triggerEvent('valueChanged',{ index: this.data.fatherIndex, value: parseInt(e.detail.value)},{})
+      console.log(e)
+    },
+    checkboxChange(e) {
+      this.triggerEvent('valueChanged', { index: this.data.fatherIndex, value: util.parseIntforArray(e.detail.value) }, {})
+      console.log(e)
     }
   },
   created(){

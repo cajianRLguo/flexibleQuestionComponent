@@ -2,6 +2,7 @@
   "component": true,
   "usingComponents": {
     "om-title": "../../components/flexible/oneline-multiselect-title/oneline-multiselect-title",
-    "om-item": "../../components/flexible/oneline-multiselect-item/oneline-multiselect-item"
+    "om-item": "../../components/flexible/oneline-multiselect-item/oneline-multiselect-item",
+    "it-slide":"../../components/flexible/input-title-with-slide/input-title-with-slide"
   }
 }

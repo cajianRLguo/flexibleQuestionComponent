@@ -1,0 +1,9 @@
+/* components/flexible/input-title-with-slide/input-title-with-slide.wxss */
+@import '../../../style/weui.wxss';
+.input-slide {
+  color: #aaa;
+  padding-left: 50rpx;
+}
+.it-slide-input {
+  color :blueviolet
+}
