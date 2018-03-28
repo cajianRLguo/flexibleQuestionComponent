@@ -1,13 +1,13 @@
 # -
 问卷灵活题型组件
 
-##应用场景
+## 应用场景
 如果问卷问题type为“flexible”，则可以使用本组件
 flexible组件接受以下几个参数：
 * question:Object 题目内容
 * theIndex:Number 当前题目在问卷中所处的下标（用于数据传输）
 
-##问卷数组范例
+## 问卷数组范例
 ```json
 [
   {
