@@ -1,1 +1,8 @@
 /* components/flexible/flexible.wxss */
+
+.flexible-component {
+  position: relative;
+  border-style: none none groove none;
+  border-width: 0.5px;
+  border-color: rgba(233,233,233,0.3)
+}

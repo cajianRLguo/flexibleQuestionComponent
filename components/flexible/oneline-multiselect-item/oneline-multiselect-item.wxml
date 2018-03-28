@@ -1,19 +1,20 @@
 <!--components/flexible/oneline-multiselect-item/oneline-multiselect-item.wxml-->
 <view>
-    <view class="page__bd page__bd_spacing">
+    <view class="page__bd page__bd_spacing om-item">
         <view class="weui-flex">
-              <radio-group wx:if="{{detail.checkType =='radio'}}" bindchange="radioChange">
-                <view class="weui-flex">
-                <view class="weui-flex__item om-item">{{detail.title}}</view>
-                 <view class="weui-flex__item om-item" wx:for="{{indexs}}"> <radio value="{{index}}"></radio></view>
-                </view>
-              </radio-group>
-              <checkbox-group wx:if="{{detail.checkType =='checkbox'}}" bindchange="checkboxChange">
-                <view class="weui-flex">
-                <view class="weui-flex__item om-item">{{detail.title}}</view>
-                 <view class="weui-flex__item om-item" wx:for="{{indexs}}"> <checkbox value="{{index}}"></checkbox></view>
-                </view>
-              </checkbox-group>
+            <view class="weui-flex__item">
+              <text class="om-item-title">{{detail.title}}</text>
+            </view>
+            <radio-group class="weui-flex__item" wx:if="{{detail.checkType =='radio'}}" bindchange="radioChange">
+              <view class="weui-flex om-item-group">
+                <view class="weui-flex__item om-select-item" wx:for="{{indexs}}"> <radio value="{{index}}"></radio></view>
+              </view>
+            </radio-group>
+            <checkbox-group wx:if="{{detail.checkType =='checkbox'}}" bindchange="checkboxChange">
+              <view class="weui-flex om-item-group">
+                <view class="weui-flex__item om-select-item" wx:for="{{indexs}}"> <checkbox value="{{index}}"></checkbox></view>
+              </view>
+            </checkbox-group>
         </view>
     </view>
 </view>

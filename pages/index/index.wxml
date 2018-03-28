@@ -1,4 +1,6 @@
 <!--index.wxml-->
 <view class="container">
-  <flexible question="{{question}}" theIndex="{{theIndex}}"></flexible>
+  <view wx:for="{{questions}}">
+  <flexible question="{{item}}" theIndex="{{index}}" wx:if="{{item.type=='flexible'}}"></flexible>
+  </view>
 </view>

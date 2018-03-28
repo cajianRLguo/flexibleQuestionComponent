@@ -5,5 +5,10 @@
   padding-left: 50rpx;
 }
 .it-slide-input {
-  color :blueviolet
+  color :blueviolet;
+  border-bottom-style: double;
+  width: 80rpx;
+  text-align:center;
+  border-width: 2px;
+  border-color: rgba(23, 23, 23, 0.4)
 }

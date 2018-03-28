@@ -1,7 +1,26 @@
 /* components/flexible/oneline-multiselect-item/oneline-multiselect-item.wxss */
 @import '../../../style/weui.wxss';
 
-.om-item {
+.om-select-item {
   color: #aaa;
   padding: 30rpx;
+  border-style: none none none none;
+  /* background: #adf */
+  
+}
+
+.om-item-group {
+  padding-left: 10rpx;
+  /* background: #e11 */
+}
+
+.om-item-title {
+  font-size: 30rpx;
+  /* background: #444;  */
+  width: 30rpx;
+  text-align: left;
+  top:50rpx
+}
+.om-item {
+  position:relative;
 }

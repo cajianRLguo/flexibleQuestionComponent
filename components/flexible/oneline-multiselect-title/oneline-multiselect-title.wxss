@@ -3,4 +3,8 @@
 .om-title {
   color: #aaa;
   padding-left: 50rpx;
+  font-size: 26rpx;
+}
+.om-title-group {
+  padding-left: 50rpx
 }

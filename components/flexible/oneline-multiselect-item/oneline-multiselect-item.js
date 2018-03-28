@@ -6,7 +6,7 @@ Component({
    */
   properties: {
     detail: Object,
-    fatherIndex: Number
+    inputIndex: Number
   },
 
   /**
@@ -21,21 +21,21 @@ Component({
    */
   methods: {
     radioChange(e) {
-      this.triggerEvent('valueChanged',{ index: this.data.fatherIndex, value: parseInt(e.detail.value)},{})
-      console.log(e)
+      this.triggerEvent('valueChanged', { index: this.data.inputIndex, value: parseInt(e.detail.value)})
+      // console.log(e)
     },
     checkboxChange(e) {
-      this.triggerEvent('valueChanged', { index: this.data.fatherIndex, value: util.parseIntforArray(e.detail.value) }, {})
-      console.log(e)
+      this.triggerEvent('valueChanged', { index: this.data.inputIndex, value: util.parseIntforArray(e.detail.value) })
+      // console.log(e)
     }
   },
   created(){
   },
   attached(){
     this.setData({ indexs: util.fastRange(this.data.detail.itemNum) })
+    console.log(this.data.inputIndex)
   },
   ready(){
-    console.log(this.data)
   },
   relations:{
     '../flexible':{

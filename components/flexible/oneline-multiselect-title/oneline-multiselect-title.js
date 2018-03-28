@@ -5,7 +5,7 @@ Component({
    */
   properties: {
     detail: {
-      type: Array
+      type: Object
     }
   },
 

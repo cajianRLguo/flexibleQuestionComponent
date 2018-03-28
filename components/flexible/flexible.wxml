@@ -1,5 +1,8 @@
 <!--components/flexible/flexible.wxml-->
-<text>{{theIndex}}.{{question.title}}</text>
-<om-title detail="{{question.components[0].titles}}" fatherIndex="0"></om-title>
-<om-item detail="{{question.components[1]}}" fatherIndex="1" bind:valueChanged="itemValueChanged"></om-item>
-<it-slide detail="{{question.components[2]}}"></it-slide>
+<text>{{theIndex+1}}.{{question.title}}</text>
+<view wx:for="{{question.components}}" class="flexible-component">
+  <om-title wx:if="{{item.type == 'onelineMultiSelectTitle'}}" detail="{{question.components[index]}}" inputIndex="{{inputIndexs[index]}}"></om-title>
+  <om-item wx:if="{{item.type == 'onelineMultiSelectItem'}}" detail="{{question.components[index]}}" inputIndex="{{inputIndexs[index]}}" bind:valueChanged="itemValueChanged"></om-item>
+  <it-slide wx:if="{{item.type == 'inputTitleWithSlide'}}" detail="{{question.components[index]}}" bind:valueChanged="itemValueChanged" inputIndex="{{inputIndexs[index]}}"></it-slide>
+  <select-item wx:if="{{item.type == 'selectItem'}}" detail="{{question.components[index]}}" inputIndex="{{inputIndexs[index]}}" bind:valueChanged="itemValueChanged"></select-item>
+</view>

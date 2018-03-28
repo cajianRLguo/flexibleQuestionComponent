@@ -1,4 +1,6 @@
 // components/flexible/flexible.js
+
+import util from '../../utils/util.js'
 Component({
   /**
    * 组件的属性列表
@@ -12,7 +14,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-    result:[]
+    result:[],
+    inputIndexs:[]
   },
 
   /**
@@ -20,9 +23,8 @@ Component({
    */
   methods: {
     itemValueChanged(e){
-      var newResult = this.data.result
-      newResult[e.detail.index] = e.detail.value
-      this.setData({ result: newResult})
+      this.data.result[e.detail.index] = e.detail.value
+      this.setData(this.data)
       console.log(this.data.result)
     }
   },
@@ -30,6 +32,13 @@ Component({
     './oneline-multiselect-item/oneline-multiselect-item': {
       type: 'child'
     }
+  },
+  attached(){
+    var inputIndexs = util.getInputIndexs(this.data.question.components)
+    this.setData({
+      inputIndexs: inputIndexs
+    })
+    console.log(this.data)
   },
   ready(){
   }

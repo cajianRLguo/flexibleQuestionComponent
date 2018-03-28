@@ -24,9 +24,26 @@ const parseIntforArray = arr => {
   })
   return arr
 }
+const getInputIndexs =(arr) => {
+  var n = 0;
+  var result = [];
+  arr.forEach(function (v, i, arr) {
+    // console.log(v.type)
+    if (v.type == "onelineMultiSelectItem" || v.type == "inputTitleWithSlide" || v.type == "selectItem") {
+      result[i] = n;
+      n += 1;
+    } else {
+      // console.log(v.type)
+    }
+
+  })
+  // console.log(result)
+  return result
+}
 
 module.exports = {
   formatTime: formatTime,
   fastRange:fastRange,
-  parseIntforArray: parseIntforArray
+  parseIntforArray: parseIntforArray,
+  getInputIndexs: getInputIndexs
 }

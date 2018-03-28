@@ -1,8 +1,10 @@
 {
   "component": true,
   "usingComponents": {
-    "om-title": "../../components/flexible/oneline-multiselect-title/oneline-multiselect-title",
-    "om-item": "../../components/flexible/oneline-multiselect-item/oneline-multiselect-item",
-    "it-slide":"../../components/flexible/input-title-with-slide/input-title-with-slide"
+    "om-title": "oneline-multiselect-title/oneline-multiselect-title",
+    "om-item": "oneline-multiselect-item/oneline-multiselect-item",
+    "it-slide":"input-title-with-slide/input-title-with-slide",
+    "select-item":"select-item/select-item"
   }
+
 }

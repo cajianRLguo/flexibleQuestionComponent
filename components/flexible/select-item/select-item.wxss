@@ -1,0 +1,2 @@
+/* components/flexible/select-item/select-item.wxss */
+@import '../../../style/weui.wxss';

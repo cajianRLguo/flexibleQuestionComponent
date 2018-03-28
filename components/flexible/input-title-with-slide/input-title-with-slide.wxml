@@ -4,14 +4,14 @@
     <view class="page__bd page__bd_spacing">
         <view class="weui-flex">
          <view class="weui-flex__item" wx:for="{{detail.titles}}">
-          <text wx:if="{{item=='@input'}}" class="it-slide-input">{{result}}</text>
+          <input bindinput="inputChanged" value="{{result}}" wx:if="{{item=='@input'}}" class="it-slide-input">llll</input>
           <text wx:else>{{item}}</text>
          </view>
         </view>
         <view class="weui-flex">
-          <slider>
-            
-          </slider>
+          <view><view class="placeholder">{{detail.min}}</view></view>
+            <view class="weui-flex__item"><view class="placeholder"><slider min="{{detail.min}}"  max="{{detail.max}}" value="{{result}} " bindchanging="slideChanging" bindchange='slideChanged'/></view></view>
+            <view><view class="placeholder">{{detail.max}}+</view></view>
         </view>
     </view>
 </view>
